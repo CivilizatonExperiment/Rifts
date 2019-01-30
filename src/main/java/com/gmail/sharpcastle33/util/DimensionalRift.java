@@ -2,38 +2,57 @@ package com.gmail.sharpcastle33.util;
 
 import org.bukkit.Location;
 
-public class DimensionalFlux {
+public class DimensionalRift {
   
   private Location origin;
-  private FluxExtractor extractor;
+  private VoidExtractor extractor;
   private int duration;
   private int radius;
-  private int value;
-  private boolean active;
+  private RiftType type;
+  private double size;
   private boolean inUse;
   
   
-  public DimensionalFlux(Location origin, int radius, int duration, int value){
+  public DimensionalRift(RiftType type, Location origin, int radius, int duration){
     
+    this.type = type;
     this.origin = origin;
     this.radius = radius;
     this.duration = duration;
-    this.value = value;
-    
-    active = true;
     inUse = false;
     extractor = null;
+    size = 1;
     
   }
   
-  public int getValue(){
-    return value;
+  public DimensionalRift(RiftType type, Location origin, int radius, int duration, double size){
+    
+    this.type = type;
+    this.origin = origin;
+    this.radius = radius;
+    this.duration = duration;
+    inUse = false;
+    extractor = null;
+    this.size = size;
+    
   }
   
-  public void setValue(int i){
-    value = i;
+
+  public RiftType getType() {
+    return type;
   }
 
+  public void setType(RiftType type) {
+    this.type = type;
+  }
+
+  public double getSize() {
+    return size;
+  }
+
+  public void setSize(double size) {
+    this.size = size;
+  }
 
   public Location getOrigin() {
     return origin;
@@ -45,12 +64,12 @@ public class DimensionalFlux {
   }
 
 
-  public FluxExtractor getExtractor() {
+  public VoidExtractor getExtractor() {
     return extractor;
   }
 
 
-  public void setExtractor(FluxExtractor extractor) {
+  public void setExtractor(VoidExtractor extractor) {
     this.extractor = extractor;
   }
 
@@ -73,17 +92,6 @@ public class DimensionalFlux {
   public void setRadius(int radius) {
     this.radius = radius;
   }
-
-
-  public boolean isActive() {
-    return active;
-  }
-
-
-  public void setActive(boolean active) {
-    this.active = active;
-  }
-
 
   public boolean isInUse() {
     return inUse;
