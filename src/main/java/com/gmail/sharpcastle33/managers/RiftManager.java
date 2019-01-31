@@ -31,10 +31,10 @@ public class RiftManager {
     return false;
   }
   
-  public Location generateRift(){
-   DimensionalRift f = RiftGenerator.generateRandomRift();
+  public DimensionalRift generateRift(Byte seed, World world){
+   DimensionalRift f = RiftGenerator.generateRandomRift(seed, world);
    rifts.add(f);
-   return f.getOrigin();
+   return f;
   }
 
   

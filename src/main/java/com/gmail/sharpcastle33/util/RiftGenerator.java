@@ -15,7 +15,9 @@ public class RiftGenerator {
   
   
   
-  public static DimensionalRift generateRandomRift() {
+  public static DimensionalRift generateRandomRift(Byte seed, World world) {
+    Location loc = generateRandomLocation(seed,world);
+    
     return null;
   }
   
