@@ -9,33 +9,15 @@ import com.gmail.sharpcastle33.util.RiftGenerator;
 
 public class RiftManager {
   
-  private byte [] seeds;
-  private int currentSeed;
 
-  public ArrayList<DimensionalRift> rifts;
+
+  public ArrayList<DimensionalRift> rifts; //Active rifts in all dimensions
   
   public RiftManager() {
-    seeds = new byte[20];
-    currentSeed = 0;
-    
-    SecureRandom sec = new SecureRandom();
-    seeds = sec.generateSeed(20);
+
   }
   
-  private Byte getNextSeed() {
-   Byte ret = 0;
-    if(currentSeed < 20) {
-      ret = seeds[currentSeed];
-      currentSeed++;
-    }else {
-      SecureRandom sec = new SecureRandom();
-      seeds = sec.generateSeed(20);
-      currentSeed = 0;
-      ret = seeds[currentSeed];
-      currentSeed++;
-    }
-    return ret;
-  }
+
   
   public boolean validExtractorLocation(Location loc){
     for(DimensionalRift f : rifts){
@@ -49,7 +31,7 @@ public class RiftManager {
   }
   
   public DimensionalRift generateRift(World world){
-   DimensionalRift f = RiftGenerator.generateRandomRift(getNextSeed(), world);
+   DimensionalRift f = RiftGenerator.generateRandomRift(world);
    rifts.add(f);
    return f;
   }

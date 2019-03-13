@@ -15,8 +15,8 @@ public class RiftGenerator {
   
   
   
-  public static DimensionalRift generateRandomRift(Byte seed, World world) {
-    Location loc = generateRandomLocation(seed,world);
+  public static DimensionalRift generateRandomRift(World world) {
+    Location loc = generateRandomLocation(world);
     
     return null;
   }
@@ -26,11 +26,11 @@ public class RiftGenerator {
   }
   
   public static RiftType generateRiftType() {
-    return null;
+    return RiftType.MAGICITE_RIFT;
   }
   
-  public static Location generateRandomLocation(Byte seed, World world) {
-    Random rand = new Random(seed);
+  public static Location generateRandomLocation(World world) {
+    Random rand = new Random();
     
     int x = (rand.nextInt(maxRadius-minRadius-centerX)+minRadius+centerX);
     int z = (rand.nextInt(maxRadius-minRadius-centerZ)+minRadius+centerZ);

@@ -5,7 +5,6 @@ import org.bukkit.Location;
 public class DimensionalRift {
   
   private Location origin;
-  private VoidExtractor extractor;
   private int duration;
   private int radius;
   private RiftType type;
@@ -20,7 +19,6 @@ public class DimensionalRift {
     this.radius = radius;
     this.duration = duration;
     inUse = false;
-    extractor = null;
     size = 1;
     
   }
@@ -32,7 +30,6 @@ public class DimensionalRift {
     this.radius = radius;
     this.duration = duration;
     inUse = false;
-    extractor = null;
     this.size = size;
     
   }
@@ -62,17 +59,6 @@ public class DimensionalRift {
   public void setOrigin(Location origin) {
     this.origin = origin;
   }
-
-
-  public VoidExtractor getExtractor() {
-    return extractor;
-  }
-
-
-  public void setExtractor(VoidExtractor extractor) {
-    this.extractor = extractor;
-  }
-
 
   public int getDuration() {
     return duration;

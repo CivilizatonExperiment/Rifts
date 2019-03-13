@@ -1,5 +1,7 @@
 package com.gmail.sharpcastle33.listeners;
 
-public class ExtractorBreakListener {
+import org.bukkit.event.Listener;
+
+public class ExtractorBreakListener implements Listener {
 
 }
