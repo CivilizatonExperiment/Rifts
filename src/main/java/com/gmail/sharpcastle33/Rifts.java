@@ -7,11 +7,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.gmail.sharpcastle33.listeners.ExtractorBreakListener;
 import com.gmail.sharpcastle33.listeners.ExtractorCreationListener;
 import com.gmail.sharpcastle33.listeners.RedstoneExploitListener;
+import com.gmail.sharpcastle33.listeners.RiftLocatorListener;
 import com.gmail.sharpcastle33.managers.RiftManager;
 
 public class Rifts extends JavaPlugin{
 	public static Plugin plugin;
-	public RiftManager riftManager;
+	public static RiftManager riftManager;
 
   
   public void onEnable(){
@@ -22,6 +23,8 @@ public class Rifts extends JavaPlugin{
 		Bukkit.getServer().getPluginManager().registerEvents(new ExtractorCreationListener(), plugin);			
 
 		Bukkit.getServer().getPluginManager().registerEvents(new RedstoneExploitListener(), plugin);			
+
+		Bukkit.getServer().getPluginManager().registerEvents(new RiftLocatorListener(), plugin);			
 
   }
   
