@@ -36,6 +36,10 @@ public class RiftManager {
    return f;
   }
   
+  public DimensionalRift generateRift(World world, Location loc) {
+	  return null;
+  }
+  
   public void despawnRift(DimensionalRift rift) {
     rifts.remove(rift);
   }
