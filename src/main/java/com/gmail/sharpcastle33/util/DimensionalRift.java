@@ -10,6 +10,7 @@ public class DimensionalRift {
   private RiftType type;
   private double size;
   private boolean inUse;
+  public VoidExtractor extractor;
   
   
   public DimensionalRift(RiftType type, Location origin, int radius, int duration){
@@ -20,6 +21,7 @@ public class DimensionalRift {
     this.duration = duration;
     inUse = false;
     size = 1;
+    extractor = null;
     
   }
   
@@ -31,6 +33,7 @@ public class DimensionalRift {
     this.duration = duration;
     inUse = false;
     this.size = size;
+    extractor = null;
     
   }
   

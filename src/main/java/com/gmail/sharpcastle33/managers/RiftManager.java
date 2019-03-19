@@ -1,11 +1,14 @@
 package com.gmail.sharpcastle33.managers;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import com.gmail.sharpcastle33.util.DimensionalRift;
 import com.gmail.sharpcastle33.util.RiftGenerator;
+import com.gmail.sharpcastle33.util.RiftType;
+import com.gmail.sharpcastle33.util.VoidExtractor;
 
 public class RiftManager {
   
@@ -17,7 +20,30 @@ public class RiftManager {
 
   }
   
-
+  public void anchorExtractor(Block b) {
+    if(b.getType() == Material.BLACK_SHULKER_BOX) {
+      
+    }
+  }
+  
+  public VoidExtractor getExtractor(DimensionalRift r) {
+    return r.extractor;
+  }
+  
+  public void setExtractor(DimensionalRift r, Block b) {
+    if(b.getType() == Material.BLACK_SHULKER_BOX) {
+      VoidExtractor ext = new VoidExtractor(b.getLocation());
+      r.extractor = ext;
+    }
+  }
+  
+  public void cycleLoot(DimensionalRift r) {
+    if(getExtractor(r) != null) {
+      RiftType type = r.getType();
+      double size = r.getSize();
+      
+    }else { return; }
+  }
   
   public boolean validExtractorLocation(Location loc){
     for(DimensionalRift f : rifts){
@@ -28,6 +54,17 @@ public class RiftManager {
       }
     }
     return false;
+  }
+  
+  public DimensionalRift getRiftAtLocation(Location loc) {
+    for(DimensionalRift f : rifts){
+      if(f.getOrigin().getWorld().equals(loc.getWorld())){
+        if(loc.distance(f.getOrigin()) <= f.getRadius()){
+          return f;
+        }
+      }
+    }
+    return null;
   }
   
   public DimensionalRift generateRift(World world){
