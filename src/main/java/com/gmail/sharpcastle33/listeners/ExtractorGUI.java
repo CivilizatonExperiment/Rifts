@@ -12,6 +12,8 @@ import net.md_5.bungee.api.ChatColor;
 public class ExtractorGUI implements Listener{
   
   public static String EXTRACTOR_GUI_NAME = ChatColor.DARK_BLUE + "Void Extractor";
+  public static String ANCHORED_EXTRACTOR_GUI_NAME = ChatColor.RED + "(Anchored)" + ChatColor.DARK_BLUE + "Void Extractor";
+
   public static String BUTTON_UNANCHOR = ChatColor.RED + "Unanchor Extractor";
   public static String BUTTON_ANCHOR = ChatColor.GREEN + "Anchor and Activate";
   public static String INFORMATION = ChatColor.BLUE + "Information";
@@ -33,17 +35,13 @@ public class ExtractorGUI implements Listener{
       String invName = event.getInventory().getName();
       
       
-      if(!(invName.equals(EXTRACTOR_GUI_NAME))) {
+      if(!(    invName.equals(EXTRACTOR_GUI_NAME) || invName.equals(ANCHORED_EXTRACTOR_GUI_NAME))) {
         return;
       }
       
       if (clicked.getType() == Material.ENDER_PEARL) {
         event.setCancelled(true);
         p.sendMessage(ChatColor.RED + "Enderpearls may not be put in this device");
-      }
-      
-      if(event.getClickedInventory().getName().equals(EXTRACTOR_GUI_NAME)) {
-        
       }
       
       if(event.getClickedInventory() instanceof PlayerInventory){
