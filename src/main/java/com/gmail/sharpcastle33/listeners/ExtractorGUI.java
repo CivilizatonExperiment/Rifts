@@ -22,13 +22,17 @@ public class ExtractorGUI implements Listener{
 
   public static String BUTTON_UNANCHOR = ChatColor.RED + "Unanchor Extractor";
   public static String BUTTON_ANCHOR = ChatColor.GREEN + "Anchor and Activate";
-  public static String INFORMATION = ChatColor.BLUE + "Information";
+  public static String RIFT_INFORMATION = ChatColor.BLUE + "Information";
   public static String EXTRACTOR_INFORMATION = ChatColor.BLUE + "Extractor Information";
   
+  //GUI errors
   public static String ERROR_NO_RIFT = ChatColor.RED + "There is not an active Rift at this location.";
   public static String ERROR_RIFT_IN_USE = ChatColor.RED + "There is already an active Void Extractor in use on this Rift.";
   public static String ERROR_NO_FURNACE = ChatColor.RED + "There must be a furnace below the Void Extractor.";
   public static String ERROR_NO_COAL = ChatColor.RED + "There must be at least 10 coal in the Void Extractor in order to activate it.";
+  
+  public static String ERROR_ANCHORED_DEVICE = ChatColor.RED + "Anchored devices cannot be broken. Try unanchoring the device first.";
+  
   @EventHandler
   public void alembicGUI(InventoryClickEvent event) {
      

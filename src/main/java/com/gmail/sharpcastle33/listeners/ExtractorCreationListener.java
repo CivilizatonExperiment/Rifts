@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import net.md_5.bungee.api.ChatColor;
 
 public class ExtractorCreationListener implements Listener {
@@ -33,6 +34,42 @@ public class ExtractorCreationListener implements Listener {
         Inventory inv = box.getInventory();
         inv.clear();
         
+        //create GUI
+        
+        ItemStack none = new ItemStack(Material.IRON_FENCE);
+        ItemMeta noneMeta = none.getItemMeta();
+        noneMeta.setDisplayName(ChatColor.RED + "");
+        none.setItemMeta(noneMeta);
+        
+        inv.setItem(1, none);
+        inv.setItem(10, none);
+        inv.setItem(19, none);
+        
+        ItemStack info = new ItemStack(Material.PAPER);
+        ItemMeta infoMeta = info.getItemMeta();
+        infoMeta.setDisplayName(ExtractorGUI.EXTRACTOR_INFORMATION);
+        info.setItemMeta(infoMeta);
+        
+        inv.setItem(0, info);
+        
+        ItemStack rift = new ItemStack(Material.PAPER);
+        ItemMeta riftMeta = rift.getItemMeta();
+        riftMeta.setDisplayName(ExtractorGUI.RIFT_INFORMATION);
+        rift.setItemMeta(riftMeta);
+        
+        inv.setItem(9, rift);
+        
+        ItemStack anchor = new ItemStack(Material.PAPER);
+        ItemMeta anchorMeta = anchor.getItemMeta();
+        anchorMeta.setDisplayName(ExtractorGUI.BUTTON_ANCHOR);
+        anchor.setItemMeta(anchorMeta);
+        
+        inv.setItem(18, anchor);
+        
+        
+        
+        
+        box.update(true);
         
        //invalid location 
       }else {
